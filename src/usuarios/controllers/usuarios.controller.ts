@@ -1,0 +1,13 @@
+import { Body, Controller, Post } from "@nestjs/common";
+import { NovoUsuarioDto, UsuarioCadastradoDto, UsuariosApplicationService } from "../application";
+
+@Controller('usuarios')
+export class UsuariosController {
+
+  constructor(private readonly usuariosApplicationService: UsuariosApplicationService) {}
+
+  @Post()
+  async cadastra(@Body() novoUsuarioDto: NovoUsuarioDto): Promise<UsuarioCadastradoDto> {
+    return await this.usuariosApplicationService.cadastra(novoUsuarioDto);
+  }
+}
