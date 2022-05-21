@@ -1,2 +1,2 @@
-export * from './classes'
-export * from './notificacao'
+export * from './classes';
+export * from './notificacao';

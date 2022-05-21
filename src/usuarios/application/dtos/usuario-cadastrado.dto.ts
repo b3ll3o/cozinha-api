@@ -1,4 +1,4 @@
-import { Objeto } from "../../../shared";
+import { Objeto } from '../../../shared';
 
 export class UsuarioCadastradoDto extends Objeto<UsuarioCadastradoDto> {
   id: number;
@@ -6,6 +6,6 @@ export class UsuarioCadastradoDto extends Objeto<UsuarioCadastradoDto> {
 
   constructor(usuario: Partial<UsuarioCadastradoDto>) {
     const { id, email } = usuario;
-    super({id, email});
+    super({ id, email });
   }
 }

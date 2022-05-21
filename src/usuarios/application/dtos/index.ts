@@ -1,2 +1,2 @@
-export * from './novo-usuario.dto'
-export * from './usuario-cadastrado.dto'
+export * from './novo-usuario.dto';
+export * from './usuario-cadastrado.dto';

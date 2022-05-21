@@ -1,1 +1,1 @@
-export * from './usuarios-application.service'
+export * from './usuarios-application.service';

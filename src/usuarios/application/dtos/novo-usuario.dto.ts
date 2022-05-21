@@ -1,4 +1,4 @@
-import { Objeto } from "../../../shared";
+import { Objeto } from '../../../shared';
 
 export class NovoUsuarioDto extends Objeto<NovoUsuarioDto> {
   email: string;

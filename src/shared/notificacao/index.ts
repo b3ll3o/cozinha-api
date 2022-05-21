@@ -1,3 +1,3 @@
-export * from './erro'
-export * from './notificacao'
-export * from './notificacao-erro'
+export * from './erro';
+export * from './notificacao';
+export * from './notificacao-erro';
