@@ -19,9 +19,11 @@ import { JwtAuthGuard } from './auth/domain';
     AuthModule,
   ],
   controllers: [],
-  providers: [{
-    provide: APP_GUARD,
-    useClass: JwtAuthGuard,
-  }],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+  ],
 })
 export class AppModule {}

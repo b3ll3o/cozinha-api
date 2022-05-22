@@ -1,15 +1,22 @@
-import { Injectable } from "@nestjs/common";
-import { UsuarioCadastradoDto, UsuariosApplicationService } from "../../../usuarios/application";
+import { Injectable } from '@nestjs/common';
+import {
+  UsuarioCadastradoDto,
+  UsuariosApplicationService,
+} from '../../../usuarios/application';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly usuariosApplicationService: UsuariosApplicationService, private jwtService: JwtService) {}
+  constructor(
+    private readonly usuariosApplicationService: UsuariosApplicationService,
+    private jwtService: JwtService,
+  ) {}
 
   async validateUser(email: string, senha: string): Promise<any> {
-    const usuarioCadastradoDto = await this.usuariosApplicationService.autentica(email, senha);
+    const usuarioCadastradoDto =
+      await this.usuariosApplicationService.autentica(email, senha);
     if (!usuarioCadastradoDto) {
-      return null
+      return null;
     }
     return usuarioCadastradoDto;
   }
