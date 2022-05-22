@@ -1,4 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { NoAuth } from 'src/auth/domain/no-auth';
 import {
   NovoUsuarioDto,
   UsuarioCadastradoDto,
@@ -11,6 +12,7 @@ export class UsuariosController {
     private readonly usuariosApplicationService: UsuariosApplicationService,
   ) {}
 
+  @NoAuth()
   @Post()
   async cadastra(
     @Body() novoUsuarioDto: NovoUsuarioDto,

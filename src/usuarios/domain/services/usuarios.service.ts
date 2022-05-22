@@ -22,4 +22,15 @@ export class UsuariosService {
     usuarioCadastrado.senha = undefined;
     return usuarioCadastrado;
   }
+
+  async autentica(usuario: Usuario): Promise<Usuario> {
+    const usuarioAutenticado = await this.usuarioRepository.findOne({
+      where: { email: usuario.email, senha: usuario.senha },
+    });
+    if (!usuarioAutenticado) {
+      return undefined;
+    }
+    usuarioAutenticado.senha = undefined;
+    return usuarioAutenticado;
+  }
 }
