@@ -26,7 +26,7 @@ export class UsuariosApplicationService {
     const usuario = await this.usuariosService.autentica(
       new Usuario({ email, senha }),
     );
-    if (usuario.invalido()) {
+    if (!usuario || usuario.invalido()) {
       return undefined;
     }
     const { id } = usuario;

@@ -34,7 +34,7 @@ describe('UsuariosService', () => {
 
   describe('cadastraNovoUsuario', () => {
     it('deve cadastrar um novo usuario', async () => {
-      const usuario = await service.cadastra(usuarioFactory());
+      const usuario = await service.cadastra(usuarioFactory({}));
       expect(usuario.id).not.toBeUndefined();
       expect(usuario.id).not.toBeNull();
       expect(usuario.email).toBe(USUARIO_EMAIL);
@@ -43,8 +43,8 @@ describe('UsuariosService', () => {
     });
 
     it('não deve ser possivel cadastrar dois usuarios com o mesmo email', async () => {
-      await service.cadastra(usuarioFactory());
-      const usuario = await service.cadastra(usuarioFactory());
+      await service.cadastra(usuarioFactory({}));
+      const usuario = await service.cadastra(usuarioFactory({}));
       expect(usuario.invalido()).toBeTruthy();
       expect(usuario.erros).toHaveLength(1);
       expect(usuario.erros[0].campo).toBe('email');

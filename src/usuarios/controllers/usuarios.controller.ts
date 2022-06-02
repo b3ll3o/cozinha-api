@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { NoAuth } from 'src/auth/domain/no-auth';
+import { NoAuth } from '../../auth/domain';
 import {
   NovoUsuarioDto,
   UsuarioCadastradoDto,
