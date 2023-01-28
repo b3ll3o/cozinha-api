@@ -21,4 +21,10 @@ export class UsuarioStub {
       senha: this.USUARIO_SENHA,
     });
   }
+
+  static invalido(): Usuario {
+    const usuario = this.novo({});
+    usuario.podeSerCadastrado(this.novo({}));
+    return usuario;
+  }
 }
