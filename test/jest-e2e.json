@@ -5,5 +5,16 @@
   "testRegex": ".e2e-spec.ts$",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^@usuarios/(.*)$": [
+      "/home/leo/cozinha/api/src/usuarios/$1"
+    ],
+    "^@test/(.*)$": [
+      "/home/leo/cozinha/api/src/test/$1"
+    ],
+    "^@shared/(.*)$": [
+      "/home/leo/cozinha/api/src/shared/$1"
+    ]
   }
 }
