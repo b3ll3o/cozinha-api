@@ -27,7 +27,24 @@ export class UsuariosService {
     return this.usuariosRepository.findOne({ where: { email } });
   }
 
-  async geraHashSenha(senha: string): Promise<string> {
+  async autentica(usuario: Usuario): Promise<Usuario | undefined> {
+    const usuarioCadastrado = await this.buscaUsuarioPorEmail(usuario.email)
+    if(usuarioCadastrado){
+      const mesmaSenha = await this.comparaSenha(usuarioCadastrado.senha, usuario.senha)
+      if(mesmaSenha){
+        usuario.senha = undefined
+        return usuario
+      }
+      return undefined
+    }
+    return undefined
+  }
+
+  private async comparaSenha(hash: string, senha: string): Promise<boolean> {
+    return bcrypt.compare(senha, hash)
+  }
+
+  private async geraHashSenha(senha: string): Promise<string> {
     const salt = await bcrypt.genSalt();
     return bcrypt.hash(senha, salt);
   }
