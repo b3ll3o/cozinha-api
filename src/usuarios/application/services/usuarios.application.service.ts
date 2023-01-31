@@ -7,7 +7,6 @@ import { UsuarioCadastradoDto } from '../dtos/usuario.cadastrado.dto';
 
 @Injectable()
 export class UsuariosApplicationService {
-  
   constructor(private readonly usuariosService: UsuariosService) {}
 
   async cadastra(
@@ -26,12 +25,17 @@ export class UsuariosApplicationService {
     });
   }
 
-  async autentica(email: string, senha: string): Promise<UsuarioCadastradoDto | undefined> {
-    const usuario = await this.usuariosService.autentica(new Usuario({email, senha}))
-    if(usuario){
-      const {id, email} = usuario
-      return new UsuarioCadastradoDto({id, email})
+  async autentica(
+    email: string,
+    senha: string,
+  ): Promise<UsuarioCadastradoDto | undefined> {
+    const usuario = await this.usuariosService.autentica(
+      new Usuario({ email, senha }),
+    );
+    if (usuario) {
+      const { id, email } = usuario;
+      return new UsuarioCadastradoDto({ id, email });
     }
-    return undefined
+    return undefined;
   }
 }

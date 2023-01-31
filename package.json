@@ -84,6 +84,9 @@
       "^@usuarios/(.*)$": [
         "<rootDir>/usuarios/$1"
       ],
+      "^@auth/(.*)$": [
+        "<rootDir>/auth/$1"
+      ],
       "^@test/(.*)$": [
         "<rootDir>/test/$1"
       ],

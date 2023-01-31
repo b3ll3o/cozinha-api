@@ -21,6 +21,7 @@
       "@usuarios/*": [ "./src/usuarios/*" ],
       "@test/*": [ "./src/test/*" ],
       "@shared/*": [ "./src/shared/*" ],
+      "@auth/*": [ "./src/auth/*" ],
     }
   }
 }
